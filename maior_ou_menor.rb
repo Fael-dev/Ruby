@@ -9,17 +9,42 @@ puts "Começaremos o jogo para você, "+ nome
 puts "Ecolhendo um número secreto entre 0 e 200..."
 numero_secreto = 175
 
+# COMENTARIO EM LINHA
+=begin
+	Comentário de várias linhas	
+=end
 puts "Ecolhido.. que tal adivinhar o nosso número secreto?"
 
 puts "\n\n\n\n"
 
-puts "Tentativa 1"
-puts "Escolha um número: "
-chute = gets
+limite = 5
 
-puts "Será que acertou ? Você chutou "+chute
-if chute.to_i == numero_secreto
-	puts "Acertou !"
-else 
-	puts "Errou!"
+for tentativa in 1..limite
+	puts "\n\n"
+	puts "Tentativa "+tentativa.to_s+" de "+limite.to_s
+	puts "Escolha um número: "
+	chute = gets
+
+	puts "Será que acertou ? Você chutou "+chute
+	acertou = chute.to_i == numero_secreto
+
+	if acertou
+		puts "=========="
+		puts " Acertou! "
+		puts "=========="
+		break
+	else 
+		puts "Errou!"
+		maior = numero_secreto > chute.to_i
+		if maior
+			puts "=========================="
+			puts "O número secreto é maior!"
+			puts "=========================="
+		else
+			puts "=========================="
+			puts "O número secreto é menor!"
+			puts "=========================="
+		end
+		
+	end
 end
