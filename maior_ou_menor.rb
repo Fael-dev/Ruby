@@ -10,7 +10,9 @@
 # Pode-se colocar break if condicao, então o break vai ser executado 
 # se a condição for verdadeira, e não precisa de else nem end
 #======================================================================
-
+# array << item -> Adiciona um item a ultima posição do array
+# array.size -> mostra o tamanho do array
+#======================================================================
 
 
 def boas_vindas
@@ -28,9 +30,10 @@ def sorteia_numero_secreto
 	sorteado
 end
 
-def pede_um_numero(tentativas, limite)
+def pede_um_numero(chutes, tentativas, limite)
 	puts "\n\n\n\n"
 	puts "Tentativa "+tentativas.to_s+" de "+limite.to_s
+	puts "Números chutados até agora: "+ chutes.to_s
 	puts "Escolha um número: "
 	chute = gets
 	puts "Será que acertou ? Você chutou "+chute
@@ -62,9 +65,12 @@ end
 boas_vindas
 numero_secreto = sorteia_numero_secreto
 limite = 5
+chutes = []
 
 for tentativa in 1..limite
-	chute = pede_um_numero(tentativa, limite)
+	chute = pede_um_numero(chutes, tentativa, limite)
+	chutes << chute
+
 	if verifica_se_acertou numero_secreto, chute
 		break
 	end
