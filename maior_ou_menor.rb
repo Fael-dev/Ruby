@@ -30,22 +30,18 @@ def pede_dificuldade
 end 
 	
 def sorteia_numero_secreto(dificulade)
-	if dificulade == 1
-		maximo = 30
-	else
-		if dificulade == 2
+
+	case dificulade
+		when 1 # PODE COLOCAR 1..2 entre 1 e dois ou qualquer outro numero
+			maximo = 30
+		when 2
 			maximo = 60
+		when 3
+			maximo = 100
+		when 4
+			maximo = 150
 		else
-			if dificulade == 3
-				maximo = 100
-			else
-				if dificulade == 4
-					maximo = 150
-				else
-					maximo = 200
-				end
-			end
-		end
+			maximo = 200
 	end
 
 	puts "Ecolhendo um número secreto entre 0 e #{maximo}..."
