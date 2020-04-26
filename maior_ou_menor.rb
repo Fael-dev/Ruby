@@ -66,12 +66,16 @@ boas_vindas
 numero_secreto = sorteia_numero_secreto
 limite = 5
 chutes = []
+pontos_iniciais = 1000
 
 for tentativa in 1..limite
 	chute = pede_um_numero(chutes, tentativa, limite)
 	chutes << chute
-
+	pontos_a_perder = (chute - numero_secreto) / 2.0
+	pontos_iniciais -= pontos_a_perder
 	if verifica_se_acertou numero_secreto, chute
 		break
 	end
 end
+
+puts "Você terminou o jogo com: #{pontos_iniciais}"
