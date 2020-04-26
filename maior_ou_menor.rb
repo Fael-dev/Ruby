@@ -20,7 +20,7 @@ def boas_vindas
 	puts "Qual é o seu nome?"
 	nome = gets.strip
 	puts "\n\n\n\n"
-	puts "Começaremos o jogo para você, "+ nome
+	puts "Começaremos o jogo para você, #{nome} "
 end
 	
 def sorteia_numero_secreto
@@ -32,11 +32,11 @@ end
 
 def pede_um_numero(chutes, tentativas, limite)
 	puts "\n\n\n\n"
-	puts "Tentativa "+tentativas.to_s+" de "+limite.to_s
-	puts "Números chutados até agora: "+ chutes.to_s
+	puts "Tentativa #{tentativas} de #{limite}"
+	puts "Números chutados até agora: #{chutes}"
 	puts "Escolha um número: "
 	chute = gets.strip
-	puts "Será que acertou ? Você chutou "+chute
+	puts "Será que acertou ? Você chutou: #{chute} "
 	chute.to_i
 end
 
