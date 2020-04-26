@@ -25,7 +25,8 @@ end
 
 def pede_dificuldade
 	puts "Qual nível de dificulade você prefere?"
-	puts "Dificuldade - 1: 0 á 30 \nDificuldade - 2: 0 á 60 \nDificuldade - 3: 0 á 100 \nDificuldade - 4: 0 á 150 \nPadrão: 0 á 200 "
+	puts "1 - Fácil: 0 á 30 \n2 - Normal: 0 á 60 \n3 - Difícil: 0 á 100 \n4 - Impossível: 0 á 150 \nSe não escolher: 0 á 200 "
+	puts "Escolha um número de dificulade de 1 a 4."
 	dificulade = gets.to_i
 end 
 	
@@ -101,17 +102,20 @@ def jogar(dificulade)
 	puts "Você terminou o jogo com: #{pontos_iniciais}"
 end
 
-def jogar_novamente
+def nao_quero_jogar?
 	puts "Deseja jogar novamente?(S/N)"
 	jn = gets.strip
-	jn.upcase == "S"
+	nao_quero = jn.upcase == "N"
 end
 
 boas_vindas
 dificulade = pede_dificuldade
 
-while jogar_novamente
+loop do
 	jogar(dificulade)
+	if nao_quero_jogar? # A interrogação serve para identificar que vai receber um boolean
+		break
+	end
 end
 
 
