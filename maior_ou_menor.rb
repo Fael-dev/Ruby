@@ -22,10 +22,34 @@ def boas_vindas
 	puts "\n\n\n\n"
 	puts "Começaremos o jogo para você, #{nome} "
 end
+
+def pede_dificuldade
+	puts "Qual nível de dificulade você prefere?"
+	puts "Dificuldade - 1: 0 á 30 \nDificuldade - 2: 0 á 60 \nDificuldade - 3: 0 á 100 \nDificuldade - 4: 0 á 150 \nPadrão: 0 á 200 "
+	dificulade = gets.to_i
+end 
 	
-def sorteia_numero_secreto
-	puts "Ecolhendo um número secreto entre 0 e 200..."
-	sorteado = rand(200)
+def sorteia_numero_secreto(dificulade)
+	if dificulade == 1
+		maximo = 30
+	else
+		if dificulade == 2
+			maximo = 60
+		else
+			if dificulade == 3
+				maximo = 100
+			else
+				if dificulade == 4
+					maximo = 150
+				else
+					maximo = 200
+				end
+			end
+		end
+	end
+
+	puts "Ecolhendo um número secreto entre 0 e #{maximo}..."
+	sorteado = rand(maximo)
 	puts "Ecolhido.. que tal adivinhar o nosso número secreto?"
 	sorteado
 end
@@ -63,7 +87,9 @@ def verifica_se_acertou(n_secreto, chute)
 end
 
 boas_vindas
-numero_secreto = sorteia_numero_secreto
+dificulade = pede_dificuldade
+
+numero_secreto = sorteia_numero_secreto(dificulade)
 limite = 5
 chutes = []
 pontos_iniciais = 1000
